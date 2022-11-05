@@ -17,12 +17,12 @@
         port: "{{ https_port }}"
         proto: tcp
 
-  - name: "install PiP"
-    apt:
-        name: python3-pip
-        state: present
-    # this is the required pip package
-  - name: "install pyMySQL"
-    pip:
-        name: PyMySQL
+  # - name: "install PiP"
+  #   apt:
+  #       name: python3-pip
+  #       state: present
+  #   # this is the required pip package
+  # - name: "install pyMySQL"
+  #   pip:
+  #       name: PyMySQL
   
