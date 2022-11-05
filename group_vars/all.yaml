@@ -24,7 +24,9 @@ db_pass: "{{ mysql_app_pass }}"
 ---
 app_user: "ubuntu"
 http_host: "my-domain.com"
-http_conf: "files/apache.conf"
+http_conf: "roles/templates/apache.conf.j2"
 http_port: "80"
 disable_default: true
 https_port: "443"
+
+
