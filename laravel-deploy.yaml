@@ -41,18 +41,18 @@
       composer:
         command: install
         working_dir: "{{ remote_www_root }}/{{ app_root_dir }}"
-      tags: [ 'composer:install' ]
+      
 
     - name: Install Project
       become: false
       composer:
         command: create-project
         working_dir: "{{ remote_www_root }}/{{ app_root_dir }}"
-      tags: [ 'composer:create-project' ]
+      
 
     - name: Run Migrations + Seeders
       command: "/usr/bin/php {{ remote_www_root }}/{{ app_root_dir }}/artisan migrate --seed"
-      tags: [ 'laravel', 'artisan:migrate' ]
+      
       
   handlers:
     - name: Reload Apache
