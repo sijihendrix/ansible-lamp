@@ -35,7 +35,7 @@ https_port: "443"
 
 
 # Laravel Env Variables
-app_name: Travellist
+app_name: laravel-realworld-example-app
 app_env: dev
 app_debug: true
 db_host: localhost

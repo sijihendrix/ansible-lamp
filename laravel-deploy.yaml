@@ -29,6 +29,11 @@
         entry: group:www-data:rwX
         recursive: yes
         state: present
+    # PHP Info Page
+    - name: Sets Up PHP Info Page
+      template:
+        src: "files/info.php.j2"
+        dest: "/var/www/{{ http_host }}/public/info.php"
 
 
     - name: Install Dependencies with Composer
