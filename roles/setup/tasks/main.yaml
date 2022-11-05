@@ -16,5 +16,8 @@
         rule: allow
         port: "{{ https_port }}"
         proto: tcp
-
+  - name: "Install ansible python3 mysql dependency"
+    apt:
+      name: python3-mysqldb
+      state: latest
        
