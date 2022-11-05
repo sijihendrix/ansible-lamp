@@ -1,7 +1,7 @@
 ---
 - name:  mysql-python prereq
   apt: name={{ item }} update_cache=yes state=latest
-  loop: [ 'mysql-server', 'python3-pymysql', ]
+  loop: [ 'mysql-server', 'python3-pymysql', 'mysql-client']
 
 # MySQL Configuration
 - name: Sets the root password
