@@ -10,23 +10,36 @@ mysql_app_pass: pas$%EF23dsa23
 
 
 # Laravel Env Variables
-app_name: Travellist
+app_name: laravel-realworld-example-app
 app_env: dev
 app_debug: true
-app_url: "http://{{ http_host }}"
 db_host: localhost
 db_port: 3306
 db_database: "{{ mysql_app_db }}"
 db_user: "{{ mysql_app_user }}"
 db_pass: "{{ mysql_app_pass }}"
 
+remote_www_root: /var/www
+
+app_root_dir: laravel-realworld-example-app
+
 
 ---
 app_user: "ubuntu"
-http_host: "my-domain.com"
-http_conf: "roles/templates/apache.conf.j2"
+http_host: "{{ ansible_facts.eth0.ipv4.address }}"
+http_conf: "laravel-realworld-example-app"
 http_port: "80"
 disable_default: true
 https_port: "443"
 
 
+
+# Laravel Env Variables
+app_name: Travellist
+app_env: dev
+app_debug: true
+db_host: localhost
+db_port: 3306
+db_database: "{{ mysql_app_db }}"
+db_user: "{{ mysql_app_user }}"
+db_pass: "{{ mysql_app_pass }}"

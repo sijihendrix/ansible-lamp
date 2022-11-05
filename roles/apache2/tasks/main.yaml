@@ -4,14 +4,14 @@
 
 - name: Create document root
   file:
-    path: "/var/www/{{ http_host }}"
+    path: "/var/www/{{ app_name }}"
     state: directory
     owner: "{{ app_user }}"
     mode: '0755'
 
 - name: Set up Apache virtualhost
   template:
-    src: "apache.conf.j2"
+    src: "/roles/apache2/templates/apache.conf.j2"
     dest: "/etc/apache2/sites-available/{{ http_conf }}"
   notify: Reload Apache
 
