@@ -20,4 +20,12 @@
     apt:
       name: python3-mysqldb
       state: latest
-       
+  - name: Install pip
+    apt:
+      name: python3-pip
+      state: present
+
+  - name: Install PyMySQL
+    pip:
+      name: pymysql
+      state: present
