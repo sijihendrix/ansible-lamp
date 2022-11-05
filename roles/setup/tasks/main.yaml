@@ -21,7 +21,6 @@
     apt:
         name: python3-pip
         state: present
-
     # this is the required pip package
   - name: "install pyMySQL"
   - pip:
