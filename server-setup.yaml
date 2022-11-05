@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - { role: mysql, tags: ['mysql', 'db', 'lamp'] }
+
+    - { role: php, tags: ['php', 'web', 'php-fpm', 'lemp'] }
+
+    - { role: nginx, tags: ['nginx', 'web', 'http', 'lemp'] }
+
+    - { role: composer, tags: ['composer'] }
+    
+    - { role: apache2, tags: ['apache'] }
+
