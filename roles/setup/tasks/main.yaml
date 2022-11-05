@@ -23,6 +23,6 @@
         state: present
     # this is the required pip package
   - name: "install pyMySQL"
-  - pip:
+    pip:
         name: PyMySQL
   
