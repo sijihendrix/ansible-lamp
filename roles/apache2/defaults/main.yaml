@@ -1,7 +1,0 @@
----
-app_user: "ubuntu"
-http_host: "my-domain.com"
-http_conf: "files/apache.conf"
-http_port: "80"
-disable_default: true
-https_port: "443"

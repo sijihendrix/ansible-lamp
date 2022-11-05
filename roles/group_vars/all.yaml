@@ -1,0 +1,30 @@
+---
+# Initial Server Setup
+# remote_user: sammy
+
+# MySQL Setup
+mysql_root_password: pas$%EF23dsa23
+mysql_app_db: thestore
+mysql_app_user: wiski
+mysql_app_pass: pas$%EF23dsa23
+
+
+# Laravel Env Variables
+app_name: Travellist
+app_env: dev
+app_debug: true
+app_url: "http://{{ http_host }}"
+db_host: localhost
+db_port: 3306
+db_database: "{{ mysql_app_db }}"
+db_user: "{{ mysql_app_user }}"
+db_pass: "{{ mysql_app_pass }}"
+
+
+---
+app_user: "ubuntu"
+http_host: "my-domain.com"
+http_conf: "files/apache.conf"
+http_port: "80"
+disable_default: true
+https_port: "443"

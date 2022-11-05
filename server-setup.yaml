@@ -2,6 +2,8 @@
 - hosts: all
   become: true
   roles:
+    - { role: apache2, tags: ['apache'] }
+
     - { role: mysql, tags: ['mysql', 'db', 'lamp'] }
 
     - { role: php, tags: ['php', 'web', 'php-fpm', 'lemp'] }
@@ -10,5 +12,4 @@
 
     - { role: composer, tags: ['composer'] }
     
-    - { role: apache2, tags: ['apache'] }
 
