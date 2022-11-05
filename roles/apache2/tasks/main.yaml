@@ -1,5 +1,5 @@
 ---
-- name: Install Apahce
+- name: Install Apache
   apt: name=apache2 update_cache=yes state=latest
 
 - name: Create document root
