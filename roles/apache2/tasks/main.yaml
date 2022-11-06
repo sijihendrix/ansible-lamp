@@ -6,7 +6,7 @@
   file:
     path: "/var/www/{{ app_name }}"
     state: directory
-    owner: "{{ app_user }}"
+    owner: "www-data"
     mode: '0755'
 
 - name: Set up Apache virtualhost
