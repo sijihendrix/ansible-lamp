@@ -3,12 +3,13 @@
   apt: name={{ item }} update_cache=yes state=latest
   loop: [ 'lsb-release' ,'apt-transport-https' ,'ca-certificates' ]
 
-- name: ADD PPA for PHP 8.1
-  action: wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 
-- name: add the PPA to the server packages.
-  action: echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" |  tee /etc/apt/sources.list.d/php.list
+- name: "Repo PHP"
+  apt_repository:
+    repo="ppa:ondrej/php"
 
+- name: "Updating the repo"
+  apt: update_cache=yes
 
 - name: Install PHP Modules / Extensions
   apt: name={{ item }} update_cache=yes state=latest
