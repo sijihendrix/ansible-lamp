@@ -36,31 +36,27 @@
         dest: "/var/www/{{ app_root_dir }}/public/info.php"
 
 
-    - name: Echo my_env_var and Set COMPOSER_ALLOW_SUPERUSER
-      shell: "echo $COMPOSER_ALLOW_SUPERUSER"
-      environment:
-        COMPOSER_ALLOW_SUPERUSER: 1
-
-    - name: Echo my_env_var again
-      shell: "echo $COMPOSER_ALLOW_SUPERUSER"
-
-
     - name: Install Dependencies with Composer
       become: false
       composer:
         command: install
         working_dir: "{{ remote_www_root }}/{{ app_root_dir }}"
-      
+      environment:
+        COMPOSER_ALLOW_SUPERUSER: 1
 
     - name: Install Project
       become: false
       composer:
         command: create-project
         working_dir: "{{ remote_www_root }}/{{ app_root_dir }}"
+      environment:
+        COMPOSER_ALLOW_SUPERUSER: 1
       
 
     - name: Run Migrations + Seeders
       command: "/usr/bin/php {{ remote_www_root }}/{{ app_root_dir }}/artisan migrate --seed"
+      environment:
+        COMPOSER_ALLOW_SUPERUSER: 1
       
       
   handlers:
