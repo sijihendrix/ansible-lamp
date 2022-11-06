@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  tasks:
+     - name: Copy script
+       template:
+       src: "scripts/postgress.sh.j2"
+       dest: "/home/root/postgress.sh"
+
+     - name:  Execute the script 
+       script: /home/root/userScript.sh
