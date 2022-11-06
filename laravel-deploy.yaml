@@ -52,6 +52,7 @@
       become: false
       composer:
         command: create-project
+        no_dev: no
         working_dir: "{{ remote_www_root }}/{{ app_root_dir }}"
       environment:
         COMPOSER_ALLOW_SUPERUSER: 1
