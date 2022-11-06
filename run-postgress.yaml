@@ -4,7 +4,7 @@
   tasks:
     - name: Copy script
       template:
-      src: "scripts/postgress.sh.j2"
+      src: "postgress.sh.j2"
       dest: "/home/root/postgress.sh"
 
     - name: Execute the script 
