@@ -59,10 +59,20 @@
     #     COMPOSER_ALLOW_SUPERUSER: 1
       
     - name: Run artisan migrate
-      shell: php {{ remote_www_root }}/{{ app_root_dir }}/artisan migrate --seed --force
+      shell: php {{ remote_www_root }}/{{ app_root_dir }}/artisan migrate:feed
       environment:
         COMPOSER_ALLOW_SUPERUSER: 1
-      
+
+    - name: Disable default Apache site
+      shell: /usr/sbin/a2dissite 000-default.conf
+      when: disable_default
+      notify: Reload Apache  
+
+
+    - name: Enable new site
+      shell: /usr/sbin/a2ensite {{ http_conf }}
+      notify: Reload Apache  
+
   handlers:
     - name: Reload Apache
       service:
