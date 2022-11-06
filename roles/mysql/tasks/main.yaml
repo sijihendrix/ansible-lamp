@@ -9,7 +9,6 @@
     name: mysql
     state: started
     enabled: yes
-    become: yes
 
 - name: Ensure mysql root password is updated for all root accounts
   mysql_user:
@@ -19,7 +18,6 @@
     password: "{{ mysql_root_password }}"
     priv: '*.*:ALL,GRANT'
     check_implicit_admin: true
-    become: yes
   notify: Restart MySQLDB
 
 - name: Create `/root/.my.cnf`  with root password credentials
@@ -28,7 +26,6 @@
     dest: "/root/.my.cnf"
     owner: root
     mode: 0600
-    become: yes
   notify: Restart MySQLDB
 
 - name: Removes all anonymous user accounts
