@@ -53,11 +53,15 @@
         COMPOSER_ALLOW_SUPERUSER: 1
       
 
-    - name: Run Migrations + Seeders
-      command: "/usr/bin/php {{ remote_www_root }}/{{ app_root_dir }}/artisan migrate --seed"
+    # - name: Run Migrations + Seeders
+    #   command: "/usr/bin/php {{ remote_www_root }}/{{ app_root_dir }}/artisan migrate --seed"
+    #   environment:
+    #     COMPOSER_ALLOW_SUPERUSER: 1
+      
+    - name: Run artisan migrate
+      shell: php {{ remote_www_root }}/{{ app_root_dir }}/artisan migrate --seed --force
       environment:
         COMPOSER_ALLOW_SUPERUSER: 1
-      
       
   handlers:
     - name: Reload Apache
