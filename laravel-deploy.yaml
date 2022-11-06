@@ -35,6 +35,11 @@
         src: "files/info.php.j2"
         dest: "/var/www/{{ app_root_dir }}/public/info.php"
 
+    - name: Delete content & directory
+      file:
+      state: absent
+      path: "/var/www/{{ app_root_dir }}/composer.lock"
+
 
     - name: Install Dependencies with Composer
       become: false
