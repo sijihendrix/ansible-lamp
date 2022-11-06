@@ -76,7 +76,7 @@
 
     - name: Enable new site
       shell: /usr/sbin/a2ensite {{ http_conf }}
-      notify: Reload Apache  
+      notify: Restart Apache  
 
   handlers:
     - name: Reload Apache
