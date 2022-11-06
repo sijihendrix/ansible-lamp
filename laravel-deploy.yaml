@@ -36,6 +36,15 @@
         dest: "/var/www/{{ app_root_dir }}/public/info.php"
 
 
+    - name: Echo my_env_var and Set COMPOSER_ALLOW_SUPERUSER
+      shell: "echo $COMPOSER_ALLOW_SUPERUSER"
+      environment:
+        COMPOSER_ALLOW_SUPERUSER: 1
+
+    - name: Echo my_env_var again
+      shell: "echo $COMPOSER_ALLOW_SUPERUSER"
+
+
     - name: Install Dependencies with Composer
       become: false
       composer:
