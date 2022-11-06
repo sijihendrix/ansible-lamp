@@ -41,6 +41,7 @@
       composer:
         command: install
         working_dir: "{{ remote_www_root }}/{{ app_root_dir }}"
+        no_dev: no
       environment:
         COMPOSER_ALLOW_SUPERUSER: 1
 
