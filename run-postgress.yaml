@@ -5,7 +5,7 @@
     - name: Copy script
       become: true
       copy:
-        src: "/scripts/postgress.sh"
+        src: "scripts/postgress.sh"
         dest: "/home/root"
 
     - name: Execute the script 
