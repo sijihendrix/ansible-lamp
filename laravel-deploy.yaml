@@ -54,15 +54,15 @@
         COMPOSER_ALLOW_SUPERUSER: 1
       
 
-    # - name: Run Migrations + Seeders
-    #   command: "/usr/bin/php {{ remote_www_root }}/{{ app_root_dir }}/artisan migrate --seed"
-    #   environment:
-    #     COMPOSER_ALLOW_SUPERUSER: 1
-      
-    - name: Run artisan migrate
-      shell: php {{ remote_www_root }}/{{ app_root_dir }}/artisan migrate:feed
+    - name: Run Migrations + Seeders
+      command: "/usr/bin/php {{ remote_www_root }}/{{ app_root_dir }}/artisan migrate --seed"
       environment:
         COMPOSER_ALLOW_SUPERUSER: 1
+      
+    # - name: Run artisan migrate
+    #   shell: php {{ remote_www_root }}/{{ app_root_dir }}/artisan migrate:feed
+    #   environment:
+    #     COMPOSER_ALLOW_SUPERUSER: 1
 
     - name: Disable default Apache site
       shell: /usr/sbin/a2dissite 000-default.conf
