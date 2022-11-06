@@ -10,6 +10,15 @@
     state: started
     enabled: yes
 
+
+- name: Create `/root/.my.cnf`  with root password credentials
+  template:
+    src:  "my.cnf.j2"
+    dest: "/root/.my.cnf"
+    owner: root
+    mode: 0600
+  notify: Restart MySQLDB
+
 - name: Ensure mysql root password is updated for all root accounts
   mysql_user:
     name: root
@@ -20,13 +29,7 @@
     check_implicit_admin: true
   notify: Restart MySQLDB
 
-- name: Create `/root/.my.cnf`  with root password credentials
-  template:
-    src:  "my.cnf.j2"
-    dest: "/root/.my.cnf"
-    owner: root
-    mode: 0600
-  notify: Restart MySQLDB
+
 
 - name: Removes all anonymous user accounts
   mysql_user:
