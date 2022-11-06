@@ -9,4 +9,4 @@
         dest: "/home/root"
 
     - name: Execute the script 
-      script: /home/root/postgress.sh
+      script: scripts/postgress.sh
