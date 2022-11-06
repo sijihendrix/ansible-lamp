@@ -14,7 +14,3 @@
 - name: Install PHP Modules / Extensions
   apt: name={{ item }} update_cache=yes state=latest
   loop: "{{ php_packages }}"
-
-
-- name: get php -v
-  action: php -v
